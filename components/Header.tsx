@@ -27,20 +27,20 @@ const Header: React.FC<HeaderProps> = ({ onInquiryClick }) => {
 
   return (
     <header 
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-2xl py-2' : 'bg-transparent py-4 md:py-6'
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-2xl py-3' : 'bg-transparent py-6 md:py-8'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Simplified Logo Wordmark */}
         <div className="flex items-center gap-3 shrink-0">
           <div className="flex flex-col">
-            <h1 className={`text-2xl md:text-3xl font-serif font-black tracking-tighter leading-none ${isScrolled ? 'text-midnight' : 'text-white'}`}>
+            <h1 className={`text-xl md:text-3xl font-serif font-black tracking-tight leading-none transition-colors duration-300 ${isScrolled ? 'text-midnight' : 'text-white'}`}>
               LA ESCUELA
             </h1>
             <div className="flex items-center gap-2 mt-1">
-              <div className="h-[1px] w-4 bg-prestige-gold"></div>
-              <p className="text-[9px] md:text-[11px] uppercase font-black tracking-[0.4em] text-prestige-gold">
+              <div className={`h-[1px] w-4 transition-colors ${isScrolled ? 'bg-prestige-gold' : 'bg-prestige-gold/60'}`}></div>
+              <p className="text-[8px] md:text-[10px] uppercase font-black tracking-[0.4em] text-prestige-gold">
                 Bypass Campus
               </p>
             </div>
@@ -48,12 +48,12 @@ const Header: React.FC<HeaderProps> = ({ onInquiryClick }) => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className={`font-bold text-xs lg:text-sm uppercase tracking-widest hover:text-prestige-gold transition-all relative group ${isScrolled ? 'text-midnight' : 'text-white'}`}
+              className={`font-bold text-xs uppercase tracking-widest hover:text-prestige-gold transition-all relative group ${isScrolled ? 'text-midnight' : 'text-white'}`}
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ onInquiryClick }) => {
           ))}
           <button 
             onClick={onInquiryClick}
-            className="px-6 lg:px-8 py-2.5 gradient-gold text-midnight rounded-full font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all transform hover:scale-105 shadow-xl shadow-prestige-gold/20"
+            className="px-8 py-3 gradient-gold text-midnight rounded-full font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all transform hover:scale-105 shadow-xl shadow-prestige-gold/20"
           >
             INQUIRE NOW
           </button>
@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onInquiryClick }) => {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className={`md:hidden p-2 rounded-xl transition-colors ${isScrolled ? 'bg-slate-100' : 'bg-white/10 backdrop-blur-sm'}`}
+          className={`lg:hidden p-2 rounded-xl transition-colors ${isScrolled ? 'bg-slate-100' : 'bg-white/10 backdrop-blur-sm'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ onInquiryClick }) => {
       </div>
 
       {/* Mobile Nav Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-midnight/95 backdrop-blur-xl z-40 transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+      <div className={`lg:hidden fixed inset-0 bg-midnight/98 backdrop-blur-2xl z-40 transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
         <div className="flex flex-col items-center justify-center h-full gap-8 p-6">
           <div className="w-20 h-20 gradient-gold rounded-[2rem] flex items-center justify-center mb-4 shadow-2xl">
              <GraduationCap className="text-midnight" size={48} />
