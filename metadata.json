@@ -1,0 +1,7 @@
+{
+  "name": "La Escuela School - Elite Education",
+  "description": "A high-conversion landing page for La Escuela School, featuring a modern design, online admission portal, and elite educational branding.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
